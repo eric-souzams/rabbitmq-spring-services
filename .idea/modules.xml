@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/checkout/checkout.iml" filepath="$PROJECT_DIR$/checkout/checkout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/credit-card/credit-card.iml" filepath="$PROJECT_DIR$/credit-card/credit-card.iml" />
+      <module fileurl="file://$PROJECT_DIR$/debit-card/debit-card.iml" filepath="$PROJECT_DIR$/debit-card/debit-card.iml" />
+      <module fileurl="file://$PROJECT_DIR$/email-api/email-api.iml" filepath="$PROJECT_DIR$/email-api/email-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/rabbitmq-spring-services.iml" filepath="$PROJECT_DIR$/.idea/rabbitmq-spring-services.iml" />
+    </modules>
+  </component>
+</project>
