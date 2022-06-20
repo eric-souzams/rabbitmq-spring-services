@@ -34,6 +34,8 @@ This project was developed using the following technologies:
 - [Spring Boot](https://spring.io/)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
 - [MYSQL](https://www.mysql.com/)
+- [Spring AMQP]()
+- [RabbitMQ]()
 
 
 ## Building

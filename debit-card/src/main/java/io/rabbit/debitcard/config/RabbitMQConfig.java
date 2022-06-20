@@ -1,6 +1,6 @@
-package io.rabbit.checkout.config;
+package io.rabbit.debitcard.config;
 
-import io.rabbit.checkout.utils.RabbitMQConst;
+import io.rabbit.debitcard.utils.RabbitMQConst;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

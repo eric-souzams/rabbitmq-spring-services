@@ -1,11 +1,11 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
-    name: checkout-service
+    name: email-api
   datasource:
-    url: jdbc:mysql://localhost/rss_checkout?serverTimezone=UTC
+    url: jdbc:mysql://localhost/rss_emails?serverTimezone=UTC
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -17,6 +17,17 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: "********@gmail.com"
+    password: "******************"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   rabbitmq:
     host: localhost
     port: 5672

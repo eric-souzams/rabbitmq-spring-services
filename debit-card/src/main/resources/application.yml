@@ -1,11 +1,11 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
-    name: checkout-service
+    name: debit-card-service
   datasource:
-    url: jdbc:mysql://localhost/rss_checkout?serverTimezone=UTC
+    url: jdbc:mysql://localhost/rss_debit_card?serverTimezone=UTC
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

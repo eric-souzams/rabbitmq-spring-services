@@ -2,11 +2,15 @@ version: '3.4'
 
 services:
   rabbit-mq:
-    image: rabbitmq:3.8.14-management
+    image: rabbitmq:3.9.20-management
     container_name: rabbit-mq
     restart: always
     ports:
       - 5672:5672
       - 15672:15672
     volumes:
-      - ./rabbitmq:/var/lib/rabbitmq/
+      - ./rabbitmq-volume:/var/lib/rabbitmq/
+
+volumes:
+  rabbitmq-volume:
+    external: true
