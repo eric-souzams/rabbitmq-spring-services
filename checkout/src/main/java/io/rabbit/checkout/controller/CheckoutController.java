@@ -27,11 +27,11 @@ public class CheckoutController {
     public ResponseEntity<?> makeCheckout(@Valid @RequestBody CheckoutRequest request) {
         CheckoutEntity checkout = mapper.map(request, CheckoutEntity.class);
 
-        checkout = checkoutService.startCheckout(checkout, request.getEmail());
+        checkout = checkoutService.startCheckout(checkout, request.getUserId());
 
         CheckoutDto message = mapper.map(checkout, CheckoutDto.class);
 
-        checkoutProducer.sendMessage(RabbitMQConst.EXCHANGE_NAME, RabbitMQConst.ROUTING_KEY, message);
+        checkoutProducer.sendMessage(RabbitMQConst.EXCHANGE_NAME, RabbitMQConst.CREDIT_CARD_ROUTING_KEY, message);
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Your order will be processor, coming soon we go send an email confirmation.");
     }

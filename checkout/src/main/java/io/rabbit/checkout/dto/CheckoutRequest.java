@@ -36,6 +36,6 @@ public class CheckoutRequest implements Serializable {
     private CardType cardType;
 
     @NotBlank
-    private String email;
+    private String userId;
 
 }
