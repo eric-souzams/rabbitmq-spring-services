@@ -36,6 +36,7 @@ This project was developed using the following technologies:
 - [MYSQL](https://www.mysql.com/)
 - [Spring AMQP]()
 - [RabbitMQ]()
+- [Model Mapper]()
 
 
 ## Building
