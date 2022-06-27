@@ -12,22 +12,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-    @Bean
-    public Queue queue() {
-        return new Queue(RabbitMQConst.QUEUE_NAME, true, false, false);
+    private Queue queue(String queueName) {
+        return new Queue(queueName, true, false, false);
     }
 
-    @Bean
-    public TopicExchange topicExchange() {
+    private TopicExchange topicExchange() {
         return new TopicExchange(RabbitMQConst.EXCHANGE_NAME);
     }
 
-    @Bean
-    public Binding binding(Queue queue, TopicExchange topicExchange) {
+    private Binding binding(TopicExchange topicExchange, Queue queue, String routingKey) {
         return BindingBuilder
                 .bind(queue)
                 .to(topicExchange)
-                .with(RabbitMQConst.ROUTING_KEY);
+                .with(routingKey);
     }
     @Bean
     public MessageConverter messageConverter() {

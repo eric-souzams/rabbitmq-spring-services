@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DebitCardConsumer {
 
-    @RabbitListener(queues = RabbitMQConst.QUEUE_NAME)
+    @RabbitListener(queues = RabbitMQConst.DEBIT_CARD_QUEUE_NAME)
     public void consumer() {
 
     }
