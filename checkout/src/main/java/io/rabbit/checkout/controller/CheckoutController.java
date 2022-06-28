@@ -4,6 +4,7 @@ import io.rabbit.checkout.dto.CheckoutDto;
 import io.rabbit.checkout.dto.CheckoutProcessOrderDto;
 import io.rabbit.checkout.dto.CheckoutRequest;
 import io.rabbit.checkout.entity.CheckoutEntity;
+import io.rabbit.checkout.enums.CardType;
 import io.rabbit.checkout.producer.RabbitProducer;
 import io.rabbit.checkout.service.CheckoutService;
 import io.rabbit.checkout.utils.RabbitMQConst;
@@ -33,7 +34,16 @@ public class CheckoutController {
         CheckoutDto message = mapper.map(checkout, CheckoutDto.class);
         message.setOrderId(checkout.getId());
 
-        rabbitProducer.sendMessage(RabbitMQConst.EXCHANGE_NAME, RabbitMQConst.CREDIT_CARD_ROUTING_KEY, message);
+        switch (request.getCardType()) {
+            case CREDIT:
+                rabbitProducer.sendMessage(RabbitMQConst.EXCHANGE_NAME, RabbitMQConst.CREDIT_CARD_ROUTING_KEY, message);
+                break;
+            case DEBIT:
+                rabbitProducer.sendMessage(RabbitMQConst.EXCHANGE_NAME, RabbitMQConst.DEBIT_CARD_ROUTING_KEY, message);
+                break;
+            default:
+                throw new RuntimeException("Invalid card type");
+        }
 
         CheckoutProcessOrderDto response = CheckoutProcessOrderDto.builder().timestamp(new Date())
                 .message("Your order will be processor, coming soon we go send an email confirmation.").build();

@@ -22,7 +22,7 @@ public class EmailServiceImp implements EmailService {
     private JavaMailSender emailSender;
 
     @Override
-    public EmailEntity sendEmail(EmailEntity emailModel) {
+    public void sendEmail(EmailEntity emailModel) {
         emailModel.setSendDateEmail(LocalDateTime.now());
         try{
             SimpleMailMessage message = new SimpleMailMessage();
@@ -30,14 +30,27 @@ public class EmailServiceImp implements EmailService {
             message.setTo(emailModel.getEmailTo());
             message.setSubject(emailModel.getSubject());
             message.setText(emailModel.getText());
+
 //            emailSender.send(message); // comment if won't send a email
 
             emailModel.setStatusEmail(StatusEmail.SENT);
         } catch (MailException exception){
             emailModel.setStatusEmail(StatusEmail.ERROR);
         } finally {
-            return emailRepository.save(emailModel);
+            emailRepository.save(emailModel);
         }
+    }
+
+    @Override
+    public EmailEntity buildEmail(String emailTo, String orderStatus, String orderId) {
+        return EmailEntity.builder()
+                .emailFrom("no-reply@google.com")
+                .emailTo(emailTo)
+                .subject("Checkout Order " + orderStatus)
+                .text("Your order from id " + orderId + " has been " + orderStatus)
+                .statusEmail(StatusEmail.PROCESSING)
+                .sendDateEmail(LocalDateTime.now())
+                .build();
     }
 
 }

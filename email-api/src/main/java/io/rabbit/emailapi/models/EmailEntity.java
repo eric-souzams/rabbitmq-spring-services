@@ -1,10 +1,7 @@
 package io.rabbit.emailapi.models;
 
 import io.rabbit.emailapi.enums.StatusEmail;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -16,6 +13,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 @Entity(name = "tb_emails")
 public class EmailEntity implements Serializable {
 

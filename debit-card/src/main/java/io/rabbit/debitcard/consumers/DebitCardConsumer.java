@@ -17,6 +17,7 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Component
@@ -32,10 +33,12 @@ public class DebitCardConsumer {
     private RabbitProducer rabbitProducer;
 
     @RabbitListener(queues = { RabbitMQConst.DEBIT_CARD_QUEUE_NAME }, containerFactory = "customListenerConfig1")
-    public void consumer(CheckoutOrderDto checkoutOrderDto, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
+    public void consumer(CheckoutOrderDto checkoutOrderDto, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException, InterruptedException {
         DebitCardEntity convertedRequest = mapper.map(checkoutOrderDto, DebitCardEntity.class);
 
         log.info("Processing Order from id -> {}", checkoutOrderDto.getOrderId());
+
+        Thread.sleep(TimeUnit.SECONDS.toMillis(5));
 
         CheckoutStatus processOrderResult = debitCardService.processOrder(convertedRequest);
 
