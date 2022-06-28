@@ -5,7 +5,6 @@
 <p align="center">
   <a href="#concept">Concept</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#routes">Routes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#documentation">Documentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#technologies">Technologies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#building">Building</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#docker">Docker</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -18,23 +17,48 @@
 
 
 ## Routes
-| Method | URL | Description |
-|--------|-----|-------------|
-|        |     |             |
+| Method | URL                                                | Description     |
+|--------|----------------------------------------------------|-----------------|
+| POST   | http://localhost:8080/api/v1/users/create          | Create User     |
+| POST   | http://localhost:8080/api/v1/checkout              | Make Checkout   |
+| GET    | http://localhost:8080/api/v1/users/{userId}        | Get User By Id  |
+| GET    | http://localhost:8080/api/v1/users/{userId}/orders | Get User Orders |
 
 
-## Documentation
-| URL | Description |
-|-----|-------------|
-|     |             |
+### Resources Documentation
+Make Checkout
+```json
+{
+    "cardNumber": "1234123412341234",
+    "cardName": "ERIC MAGALHAES",
+    "cardExpireDate": "01/08/2030",
+    "cardCvv": "984",
+    "amount": 987.63,
+    "cardType": "CREDIT",
+    "userId": "f1e3973c-9423-4e42-9ca4-00e0f46a5186"
+}
+```
+
+Create User
+```json
+{
+  "firstName": "Éric",
+  "lastName": "Magalhães",
+  "email": "test@test.com"
+}
+```
+
+RabbitMQ Management
+<img src="public/2.jpg">
 
 
 ## Technologies
 This project was developed using the following technologies:
 - [Spring Boot](https://spring.io/)
 - [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [Spring Validation](https://spring.io/projects)
 - [MYSQL](https://www.mysql.com/)
-- [Spring AMQP]()
+- [Spring AMQP](https://spring.io/projects)
 - [RabbitMQ]()
 - [Model Mapper]()
 
