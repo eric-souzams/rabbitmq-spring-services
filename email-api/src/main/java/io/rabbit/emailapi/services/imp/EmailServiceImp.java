@@ -30,10 +30,10 @@ public class EmailServiceImp implements EmailService {
             message.setTo(emailModel.getEmailTo());
             message.setSubject(emailModel.getSubject());
             message.setText(emailModel.getText());
-            emailSender.send(message);
+//            emailSender.send(message); // comment if won't send a email
 
             emailModel.setStatusEmail(StatusEmail.SENT);
-        } catch (MailException e){
+        } catch (MailException exception){
             emailModel.setStatusEmail(StatusEmail.ERROR);
         } finally {
             return emailRepository.save(emailModel);

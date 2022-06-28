@@ -1,6 +1,6 @@
-package io.rabbit.checkout.dto;
+package io.rabbit.creditcard.dto;
 
-import io.rabbit.checkout.enums.CheckoutStatus;
+import io.rabbit.creditcard.enums.CheckoutStatus;
 import lombok.*;
 
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdateStatusDto implements Serializable {
+public class UpdateCheckoutOrderStatusDto implements Serializable {
 
     private UUID orderId;
 

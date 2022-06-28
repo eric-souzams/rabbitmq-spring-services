@@ -25,9 +25,6 @@ public class EmailEntity implements Serializable {
     private UUID id;
 
     @Column(nullable = false)
-    private String ownerRef;
-
-    @Column(nullable = false)
     private String emailFrom;
 
     @Column(nullable = false)

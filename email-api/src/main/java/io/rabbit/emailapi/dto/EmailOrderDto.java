@@ -1,6 +1,6 @@
-package io.rabbit.checkout.dto;
+package io.rabbit.emailapi.dto;
 
-import io.rabbit.checkout.enums.CheckoutStatus;
+import io.rabbit.emailapi.enums.CheckoutStatus;
 import lombok.*;
 
 import java.io.Serializable;
@@ -11,9 +11,11 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdateStatusDto implements Serializable {
+public class EmailOrderDto implements Serializable {
 
     private UUID orderId;
+
+    private String emailTo;
 
     private CheckoutStatus status;
 

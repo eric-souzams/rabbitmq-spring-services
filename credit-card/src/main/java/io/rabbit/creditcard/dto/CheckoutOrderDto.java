@@ -1,11 +1,11 @@
-package io.rabbit.checkout.dto;
+package io.rabbit.creditcard.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import io.rabbit.checkout.enums.CardType;
+import io.rabbit.creditcard.enums.CardType;
 import lombok.*;
 
 import java.io.Serializable;
@@ -17,7 +17,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CheckoutDto implements Serializable {
+public class CheckoutOrderDto implements Serializable {
 
     private UUID orderId;
 

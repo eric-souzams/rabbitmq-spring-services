@@ -11,9 +11,11 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UpdateStatusDto implements Serializable {
+public class EmailResultOrderProcessDto implements Serializable {
 
     private UUID orderId;
+
+    private String emailTo;
 
     private CheckoutStatus status;
 

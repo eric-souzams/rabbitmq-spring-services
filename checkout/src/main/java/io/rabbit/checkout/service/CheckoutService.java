@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface CheckoutService {
     CheckoutEntity startCheckout(CheckoutEntity checkout, String userId);
 
-    void updateStatus(UpdateStatusDto updateStatusDto);
+    CheckoutEntity updateStatus(UpdateStatusDto updateStatusDto);
 
     CheckoutEntity findCheckoutById(UUID id);
 

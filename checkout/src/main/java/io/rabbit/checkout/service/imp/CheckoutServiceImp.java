@@ -8,18 +8,20 @@ import io.rabbit.checkout.repository.CheckoutRepository;
 import io.rabbit.checkout.service.CheckoutService;
 import io.rabbit.checkout.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
-@AllArgsConstructor
 @Service
 public class CheckoutServiceImp implements CheckoutService {
 
-    private final CheckoutRepository checkoutRepository;
+    @Autowired
+    private CheckoutRepository checkoutRepository;
 
-    private final UserService userService;
+    @Autowired
+    private UserService userService;
 
     @Transactional
     @Override
@@ -34,9 +36,11 @@ public class CheckoutServiceImp implements CheckoutService {
 
     @Transactional
     @Override
-    public void updateStatus(UpdateStatusDto updateStatusDto) {
-        CheckoutEntity foundedCheckout = findCheckoutById(updateStatusDto.getId());
+    public CheckoutEntity updateStatus(UpdateStatusDto updateStatusDto) {
+        CheckoutEntity foundedCheckout = findCheckoutById(updateStatusDto.getOrderId());
         foundedCheckout.setStatus(updateStatusDto.getStatus());
+
+        return foundedCheckout;
     }
 
     @Transactional(readOnly = true)

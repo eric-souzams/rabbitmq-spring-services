@@ -1,7 +1,12 @@
 package io.rabbit.debitcard.services;
 
-import org.springframework.stereotype.Service;
+import io.rabbit.debitcard.enums.CheckoutStatus;
+import io.rabbit.debitcard.models.DebitCardEntity;
 
-@Service
-public class DebitCardService {
+public interface DebitCardService {
+
+    CheckoutStatus processOrder(DebitCardEntity debitCardEntity);
+
+    DebitCardEntity saveOrder(DebitCardEntity debitCardEntity);
+
 }

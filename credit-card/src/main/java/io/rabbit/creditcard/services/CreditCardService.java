@@ -1,7 +1,11 @@
 package io.rabbit.creditcard.services;
 
-import org.springframework.stereotype.Service;
+import io.rabbit.creditcard.enums.CheckoutStatus;
+import io.rabbit.creditcard.models.CreditCardEntity;
 
-@Service
-public class CreditCardService {
+public interface CreditCardService {
+    CheckoutStatus processOrder(CreditCardEntity creditCardEntity);
+
+    void saveOrder(CreditCardEntity creditCardEntity);
+
 }
